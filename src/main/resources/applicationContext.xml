@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+
+    <!--配置数据源:BasticDataSource
+        driverClassName:
+        url:
+        username:
+        password
+    -->
+    <bean id="basicDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.p6spy.engine.spy.P6SpyDriver"></property>
+        <property name="url" value="jdbc:p6spy:mysql://localhost:3306/txhouse?useSSL=false"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>
+
+    <!--扫描Mybatis局部Xml文件所在的位置:SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--指定数据源-->
+        <property name="dataSource" ref="basicDataSource"></property>
+        <!--指定xml文件的位置-->
+        <property name="mapperLocations" value="classpath*:com/java/mapper/*.xml"></property>
+        <!--指定主配置文件-->
+        <property name="configLocation" value="classpath:myabtis.xml"></property>
+    </bean>
+
+
+    <!--将mybatis对应的dao接口与局部xml文件关联:MapperScannerConfigurer-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.java.mapper"></property>
+    </bean>
+
+</beans>

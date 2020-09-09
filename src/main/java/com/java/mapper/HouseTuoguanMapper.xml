@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.mapper.HouseTuoguanMapper">
+
+    <!--按照条件分页查询房源信息-->
+	<select id="selectHouses" resultType="Map" parameterType="Map">
+		SELECT h.*,htg.houseID,htg.yuanGongID,
+        htg.`shouFangMoney`,o.name AS ownerName,yg.name AS ygName,
+        DATEDIFF(htg.`tuoGuanEnd`,htg.`tuoGuanBegin`) AS tuoGuanDay
+        FROM house h INNER JOIN housetuoguan htg ON h.id=htg.houseID
+        INNER JOIN `owner` o ON h.yeZhuID=o.id INNER JOIN yuangong yg ON
+        yg.id=htg.yuanGongID
+        <where>
+            <if test="flag==1 and keyword!=null and keyword!=''">
+                h.`id`=#{keyword}
+            </if>
+            <if test="flag==2 and keyword!=null and keyword!=''">
+                o.`NAME`=#{keyword}
+            </if>
+            <if test="flag==3 and keyword!=null and keyword!=''">
+                h.`xiaoQuMing` LIKE CONCAT('%',#{keyword},'%')
+            </if>
+        </where>
+	</select>
+
+    <!--按照条件分页查询房东信息-->
+    <select id="selectFangDongs" resultType="Map" parameterType="Map">
+        SELECT o.*,h.`xiaoQuMing`,h.`dong`,
+        h.`danYuan`,h.`fangHao` FROM house h
+        INNER JOIN `owner` o ON h.`yeZhuID`=o.`id`
+        <where>
+            <if test="flag==1 and keyword!=null and keyword!=''">
+                o.tel=#{keyword}
+            </if>
+            <if test="flag==2 and keyword!=null and keyword!=''">
+                o.`NAME`=#{keyword}
+            </if>
+            <if test="flag==3 and keyword!=null and keyword!=''">
+                h.`xiaoQuMing` LIKE CONCAT('%',#{keyword},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>

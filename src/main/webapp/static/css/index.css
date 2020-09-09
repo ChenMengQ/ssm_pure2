@@ -1,0 +1,63 @@
+*{ margin: 0;padding: 0;}
+li,ul{list-style: none;}
+img,input{border: 0;}
+a{text-decoration: none;}
+body{font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";font-size: 14px;color: #515151;}
+body input, body textarea {font-family: "微软雅黑","Microsoft Yahei",Arial,Helvetica,sans-serif,"宋体";outline: none; }
+.content{ background:url(images/login_bg.jpg) center no-repeat; width: 100%; height:630px; background-size:cover;} 
+.con_title{background-color: #59ACD4;width: auto;height: 3.5em;line-height: 50px;text-align: center; margin-bottom:10px;}
+.con_title_sp{font-family: "微软雅黑";font-size: 1.5em;font-weight: 800;color: #FFF;}
+#header{width: auto;min-height: 70px;line-height: 70px;}
+#header{border-bottom: medium solid #fff;}
+span.title_con{font-family:"微软雅黑";font-style: normal;font-size: 2em;font-weight:800 ;color: #fff;padding-left: 1em;}
+.trigger{float: right;height: 20px;line-height: 20px;width: 100px;text-align: center;}
+.trigger a{color: #7f7f7f;}
+.trigger a:hover{color: #474747;}
+.trigger a:nth-child(3){color:#474747;}
+/*mainForm1*/
+.meizuLogo{ width: 110px; height: 20px; float: left;background: url("images/base.png") -388px -90px no-repeat; display: block;}
+.mainForm{ padding-top:60px;width: 343px;margin: 100px auto 0px;overflow: hidden;}
+.number{font-size: 20px;margin-left: -5px;margin-bottom: 30px;width: 350px;text-align: center;}
+.number a{color: #515151;}
+.linkABlue:visited {color: #00a7ea;}
+.linkAGray:hover{color: #2b2b2b;}
+.number span{color: #d9d9d9;display: inline-block;border: 1px solid #dadada;border-left: 1px;height: 16px;line-height: 20px;margin-right: 50px;margin-left: 50px;}
+.normalInput{float: left;position: relative;display: inline-block;padding: 0px 10px;width:320px;height:50px;line-height: 22px;font-size: 16px;margin-bottom: 20px;border: 1px solid #000;outline: none;color: #474747;overflow: visible;}
+.error{display: none;margin-left: 0px;margin-bottom: 20px;color: red;float: left;}
+/*#mainForm1 .normalInput input,#mainForm2 .normalInput input{line-height: 22px;padding: 14px 0;height: 22px;}*/
+.normalInput input{font-size: 16px;width:320px ;padding: 14px 0;height: 22px; background-color:transparent;}
+.errorC{ margin-bottom: 10px;border-color: red;color: red;}
+.checkedN{border: 1px solid #1ece6d;}
+
+
+.formLine{color: #d9d9d9;height: 40px;display: inline-block;border-left: 1px solid #dadada;position: absolute;right: 100px;top: 5px;}
+#getKey{width: 80px;border: none;outline: none;height: 50px;line-height: 50px;font-size: 16px;position: absolute;right: 10px;top: 0px;}
+.i_icon{display: inline-block;width: 100%;height: 100%;overflow: hidden;}
+.normalInput .password{float: left;width: 200px;}
+.normalInput .password1{float: left;width: 200px;display: none;}
+.normalInput .passwordN{float: left;width: 200px;display: block;}
+.normalInput .password1N{float: left;width: 200px;display: none;}
+.pwdBtnShow{outline: none;position: relative;display: inline-block;width: 30px;height: 30px;cursor: pointer;overflow: hidden;float: right;margin-right: 5px;}
+#pwdBtn {margin-top: 13px;margin-bottom: 10px;}
+.pwdBtnShow i{background-image:url("images/elements.png");background-position: -30px -93px; background-repeat: no-repeat;}
+.pwdBtnShowN{outline: none;position: relative;display: inline-block;width: 30px;height: 30px;cursor: pointer;overflow: hidden;float: right;margin-right: 5px;}
+#pwdBtnN {margin-top: 13px;margin-bottom: 10px;}
+.pwdBtnShowN i{background-image:url("images/elements.png");background-position: -30px -93px; background-repeat: no-repeat;}
+
+.rememberField{margin-bottom: 30px;height: 20px;line-height: 20px;float: left;display: block;}
+.checkboxPic {outline: none; display: inline-block;width: 25px;height: 20px;line-height: 20px;cursor: pointer;vertical-align: middle;overflow: hidden;}
+.check_chk i {background-position: -31px -127px;background-repeat: no-repeat;}
+.pointer{cursor: pointer;}
+.otherError{display: none;margin-left: 0px;margin-bottom: 20px;color: red;float: left;}
+.fullBtnBlue{display: inline-block;height: 50px;width: 342px;font-family:"微软雅黑";font-style: normal;font-size: 1.5em;font-weight:800 ;line-height: 50px;text-align: center;margin-bottom: 20px;outline: none;cursor: pointer;background-color: #59ACD4; color:#fff;}
+/*mainForm1end*/
+
+/*mainForm2*/
+.linkAGray2:visited {color: #00a7ea;}
+.linkABlue2:hover{color: #2b2b2b;}
+.normalInput .username{width: 220px;border: none;outline: none;font-size: 16px;height: 22px;line-height: 22px;padding: 14px 0;}
+
+/*mainForm2end*/
+
+
+.mainForm2{display: none;}

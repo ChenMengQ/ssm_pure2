@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.mapper.HRMapper">
+
+    <!--根据条件查询员工信息-->
+	<select id="selectStaffInfo" parameterType="Map" resultType="Map">
+        SELECT d.*,yg.*,u.*,d.`NAME` AS deptName,yg.`NAME` AS ygName
+        FROM `user` u INNER JOIN yuangong yg ON u.`yuanGongID`=yg.`id`
+        INNER JOIN dept d ON yg.`deptID`=d.id
+        <where>
+            u.`flag`=1
+            <if test="flag==1 and keyword!='' and keyword!=null">
+                AND yg.`NAME`=#{keyword}
+            </if>
+            <if test="flag==2 and keyword!='' and keyword!=null">
+                AND yg.`id`=#{keyword}
+            </if>
+            <if test="flag==3 and keyword!='' and keyword!=null">
+                AND yg.`tel` like CONCAT('%',#{keyword},'%')
+            </if>
+        </where>
+	</select>
+</mapper>
